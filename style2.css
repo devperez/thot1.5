@@ -1,0 +1,154 @@
+
+#logo{
+    width: 60%;
+    height: 100%;
+    position: relative;
+    bottom: 6vh;
+    left: 10vh;
+}
+#row1{
+    height: 10vh;
+}
+#search_block{
+    padding-left: 30vh;
+    padding-top: 4vh;
+    display: flex;
+  
+}
+#isbn{
+    margin-right: 6em;
+}
+#block_user{
+    padding-top: 4vh;
+    margin-left: 15vh;
+}
+#block_nav{
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    margin-left: 8vh;
+    padding-top: 5vh;
+
+}
+#profile_block,  #genres_block, #authors_block, #recent_block, #lending_block{
+    display: none;
+    text-align: center;
+    padding-top: 7vh;
+}
+#profile_block ul{
+    
+    text-align: left;
+    list-style: none;
+    padding-top: 10vh;
+
+}
+
+#profile_block li{
+    padding: 5vh;
+}
+#profile_block button{
+    border: none;
+    background-color: white;
+}
+#add_books{
+    display: none;
+    text-align: center;
+    padding-top: 7vh;
+}
+#add_books ul{
+    
+    text-align: left;
+    list-style: none;
+    padding-top: 6vh;
+
+}
+#add_books li{
+    padding: 5vh;
+}
+#add_books button{
+    border: none;
+    background-color: white;
+}
+#row3{
+   margin-top: 5vh;
+}
+#settings_block h3{
+    margin-left: 15vh;
+}
+#settings_btn{
+    margin-left: 18vh;
+}
+#books_block h1{
+    text-align: center;
+    padding-top: 7vh;
+}
+
+
+#search_block input{
+    background-color: #F6F7F8;
+    border-radius: 50px 50px 50px 50px;
+    border: none;
+}
+#isbn {
+    width: 50%;
+}
+#search{
+    width: 80%;
+}
+#block_nav {
+    border-right: solid 1px #76767C;
+}
+#block_nav button{
+    text-align: left;
+    font-size: 1.2em;
+    padding: 2vh;
+    border: none;
+    background-color: white;
+    padding-left: 8vh;
+    width: 30vh;
+    color: #76767C;
+}
+#block_nav button:hover{
+    background-color: #5843BE;
+      color: white;
+      height: 60px;
+      width: 300px;
+     border-radius: 50px 50px 50px 50px;
+
+}
+#profile_block h1{
+    color: #5843BE;
+    font-weight: bold;
+}
+#add_books h1{
+    color: #5843BE;
+    font-weight: bold;
+}
+#profile_block ul{
+    font-weight: bold;
+    color: #76767C;
+}
+#add_books ul{
+    font-weight: bold;
+    color: #76767C;
+}
+#add_btn{
+    background-color: #5843BE;
+    color: white;
+    font-weight: bold;
+      font-size: 1.5em;
+      height: 70px;
+      width: 300px;
+     border-radius: 50px 50px 50px 50px;
+
+}
+#settings_btn{
+    background-color: white;
+    border: none;
+    font-size: 1.2em;
+    color: #76767C;
+}
+ h1{
+    color: #5843BE;
+    font-weight: bold;
+}
