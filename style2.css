@@ -1,103 +1,193 @@
-
 #logo{
     width: 60%;
     height: 100%;
     position: relative;
-    bottom: 6vh;
+    bottom: 4vh;
     left: 10vh;
 }
+
 #row1{
     height: 10vh;
 }
+
 #search_block{
-    padding-left: 30vh;
+    padding-left: 9vh;
     padding-top: 4vh;
     display: flex;
-  
 }
+
 #isbn{
     margin-right: 6em;
 }
+
 #block_user{
-    padding-top: 4vh;
+    padding-top: 3vh;
     margin-left: 15vh;
 }
+
 #block_nav{
     display: flex;
     flex-direction: column;
     height: 75vh;
     margin-left: 8vh;
     padding-top: 5vh;
-
 }
-#profile_block,  #genres_block, #authors_block, #recent_block, #lending_block{
+
+.content{
+    width: 130vh ;
+    height: 60vh;
+    overflow: scroll;
+    text-align: left;
+}
+
+#profile_block,  #genres_block, #authors_block, #recent_block, #del_block{
     display: none;
     text-align: center;
     padding-top: 7vh;
 }
+
 #profile_block ul{
-    
     text-align: left;
     list-style: none;
     padding-top: 10vh;
+}
 
+#isbn_block{
+    display: none;
 }
 
 #profile_block li{
     padding: 5vh;
 }
+
 #profile_block button{
     border: none;
     background-color: white;
 }
+
 #add_books{
     display: none;
     text-align: center;
     padding-top: 7vh;
 }
+
 #add_books ul{
-    
     text-align: left;
     list-style: none;
     padding-top: 6vh;
-
 }
+
 #add_books li{
     padding: 5vh;
 }
+
 #add_books button{
     border: none;
     background-color: white;
 }
+
 #row3{
    margin-top: 5vh;
 }
+
 #settings_block h3{
     margin-left: 15vh;
 }
+
 #settings_btn{
     margin-left: 18vh;
 }
+
 #books_block h1{
     text-align: center;
     padding-top: 7vh;
 }
 
+#block_couv {
+   text-align: center;
+   padding-top: 10em;
+}
+
+#specs {
+    text-align: left;
+    padding-top: 16em;
+}
+
+#specs ul{
+    list-style: none;
+}
+
+#specs li{
+    font-size: 2em;
+}
+
+#ret_btn {
+    position: relative;
+    left: 50em;
+}
+
+#hidden_input{
+    display: none;
+}
+
+.form_index{
+    padding-right: 6em;
+}
+
+.form_modify_search{
+    padding-top: 3em;
+    text-align: center;
+}
+
+.form_modify_search h2{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: white;
+    background-color:  #5843BE;
+    border-radius: 50px 50px 50px 50px; 
+    height: 50px;
+    margin-left: 10em;
+    margin-right: 10em;
+    text-align: center;
+    margin-top: 1em;
+}
+
+#add_form{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    text-align: center;
+    padding-top: 5em;
+}
+
+#add_form h3{
+    color: white;
+    background-color:  #5843BE;
+    border-radius: 50px 50px 50px 50px; 
+    height: 40px;
+    margin-left: 3em;
+    margin-right: 3em;
+}
 
 #search_block input{
     background-color: #F6F7F8;
     border-radius: 50px 50px 50px 50px;
     border: none;
 }
-#isbn {
+
+#isbn{
     width: 50%;
 }
+
 #search{
     width: 80%;
 }
+
 #block_nav {
     border-right: solid 1px #76767C;
 }
+
 #block_nav button{
     text-align: left;
     font-size: 1.2em;
@@ -108,47 +198,94 @@
     width: 30vh;
     color: #76767C;
 }
+
 #block_nav button:hover{
     background-color: #5843BE;
-      color: white;
-      height: 60px;
-      width: 300px;
-     border-radius: 50px 50px 50px 50px;
-
+    color: white;
+    height: 60px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px;
 }
+
 #profile_block h1{
     color: #5843BE;
     font-weight: bold;
 }
+
 #add_books h1{
     color: #5843BE;
     font-weight: bold;
 }
+
 #profile_block ul{
     font-weight: bold;
     color: #76767C;
 }
+
 #add_books ul{
     font-weight: bold;
     color: #76767C;
 }
-#add_btn{
+
+.add_btn{
     background-color: #5843BE;
     color: white;
     font-weight: bold;
-      font-size: 1.5em;
-      height: 70px;
-      width: 300px;
-     border-radius: 50px 50px 50px 50px;
-
+    font-size: 1.5em;
+    height: 50px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px;
 }
+
+#ret_btn {
+    background-color: #5843BE;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    height: 70px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px;
+}
+
+#del_btn{
+    background-color: #5843BE;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    height: 70px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px;
+    position: relative;
+    bottom: 2.7em;
+    left: 13em;
+}
+
 #settings_btn{
     background-color: white;
     border: none;
     font-size: 1.2em;
     color: #76767C;
 }
- h1{
+
+h1{
     color: #5843BE;
+    font-weight: bolder;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.form_modify_search h2{
+    color: white;
+    background-color:  #5843BE;
+    border-radius: 50px 50px 50px 50px; 
+}
+
+.modify_btn{
+    background-color: #76767C;
+    color: white;
     font-weight: bold;
+    font-size: 1.5em;
+    height: 60px;
+    width: 300px;
+    border-radius: 50px 50px 50px 50px;
 }

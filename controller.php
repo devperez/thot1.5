@@ -25,12 +25,14 @@ include ('connexion.php');
       die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
     }  
 
-    //préparer la requête d'insertion SQL
+    //Requête d'insertion SQL
         $query = "INSERT INTO users (identifiant_user, email_user, password_user) VALUES ('$name', '$email', '".hash('sha256',$password)."')";
         $res = mysqli_query($cnx, $query);
         if($res) {
             echo "<h3>Vous êtes inscrit.</h3>";
+            $_SESSION[$email] = $email;
+        header("Location:sign_in.php");
         }
-    }
+  }
         
   

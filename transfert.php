@@ -1,60 +1,74 @@
 <?php
-    function transfert(){
-        $ret        = false;
-        $img_blob   = '';
-        $img_taille = 0;
-        $img_type   = '';
-        $img_nom    = '';
-        $taille_max = 250000;
-        $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
-        
-        if (!$ret) {
-            echo "Problème de transfert";
-            return false;
-        } else {
-            // Le fichier a bien été reçu
-            $img_taille = $_FILES['fic']['size'];
-            
-            if ($img_taille > $taille_max) {
-                echo "Trop gros !";
-                return false;
-            }
+  include ('connexion.php');
 
-            $img_type = $_FILES['fic']['type'];
-            $img_nom  = $_FILES['fic']['name'];
-            include ("connexion.php");
-            $img_blob = file_get_contents ($_FILES['fic']['tmp_name']);
-            $req = "INSERT INTO couvertures (" . 
-                                "img_nom, img_taille, img_type, img_blob " .
-                                ") VALUES (" .
-                                "'" . $img_nom . "', " .
-                                "'" . $img_taille . "', " .
-                                "'" . $img_type . "', " .
-                                "'" . addslashes ($img_blob) . "') "; // N'oublions pas d'échapper le contenu binaire
-        $ret = mysqli_query ($cnx,$req) or die (mysqli_error ($cnx));
-        return true;
+  session_start();
+
+//vérification de la connexion de l'utilisateur, si false retour au login
+if($_SESSION['email'] !== ""){
+    $email = $_SESSION['email'];
+
+// Vérifie que les informations proviennent du formulaire
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $title = $_POST["title"]; 
+  $isbn = $_POST["isbn"];
+  $genre = $_POST["genre"]; 
+  $author = $_POST["author"];
+
+  //Ouvrir une nouvelle connexion au serveur MySQL
+  $mysqli = new mysqli($hote, $user, $pass, $base);
+
+  //Afficher toute erreur de connexion
+  if ($mysqli->connect_error) {
+    die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+  }else {
+ 
+  }
+
+
+  $ret        = false;
+  $img_blob   = '';
+  $img_taille = 0;
+  $img_type   = '';
+  $img_nom    = '';
+  $taille_max = 250000;
+  $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
+  
+  if (!$ret) {
+      echo "Problème de transfert";
+      return false;
+  } else {
+      // Le fichier a bien été reçu
+      $img_taille = $_FILES['fic']['size'];
       
-        }
-     
-    }
+      if ($img_taille > $taille_max) {
+          echo "Fichier image trop volumineux !";
+          return false;
+      }
 
-    //Aperçu
+      $img_type = $_FILES['fic']['type'];
+      $img_nom  = $_FILES['fic']['name'];
+      $img_blob = file_get_contents ($_FILES['fic']['tmp_name']);
 
-    if ( isset($_GET['id']) ){
-        $id = intval ($_GET['id']);
-        include ("connexion.php");
-        $req = "SELECT img_id, img_type, img_blob " . 
-               "FROM couvertures WHERE img_id = " . $id;
-        $ret = mysqli_query ($cnx,$req) or die (mysql_error ());
-        $col = mysqli_fetch_row ($ret);
-        
-        if ( !$col[0] ){
-            echo "Id d'image inconnu";
-        } else {
-            header ("Content-type: " . $col[1]);
-            echo $col[2];
-        }
 
-    } else {
-        echo "Mauvais id d'image";
-    }
+      $query2 ="SELECT id_user FROM users WHERE email_user = '".$email."' ";
+      $res = mysqli_query($cnx, $query2);
+
+      while ($row = $res->fetch_assoc()) {
+        $id = $row['id_user'];
+      }
+      
+      $query = "INSERT INTO books (id_utilisateur, isbn, titre, img_blob, genre, auteur) VALUES ('".$id."','".$isbn."', '".$title."','" . addslashes ($img_blob) . "','".$genre."','".$author."')";
+      $res = mysqli_query($cnx, $query);
+      if($res) {
+        echo "<h3>Livre enregistré.</h3>";
+        header('Refresh:2; URL=index2.php');
+      }
+    
+  }
+}
+
+
+} else {
+    header("Location:landing.php");
+    exit();
+}
