@@ -34,15 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $ret        = is_uploaded_file($_FILES['fic']['tmp_name']);
   
   if (!$ret) {
-      echo "Problème de transfert";
-      return false;
+      echo "Problème de transfert.";
+      header('Refresh:2; URL=index2.php');
   } else {
       // Le fichier a bien été reçu
       $img_taille = $_FILES['fic']['size'];
       
       if ($img_taille > $taille_max) {
           echo "Fichier image trop volumineux !";
-          return false;
+          header('Refresh:2; URL=index2.php');
       }
 
       $img_type = $_FILES['fic']['type'];

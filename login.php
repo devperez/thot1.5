@@ -15,5 +15,6 @@
                 header("Location:index2.php");
             }else{
                 echo "Le nom d'utilisateur ou le mot de passe est incorrect.";
+                header("Refresh:2;url=sign_in.php");
             }
     }

@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="row" id="row3">
                     <div class="col-md-12 col-lg-12">
-                        <button id="ret_btn" onclick="redirect()">Retour </button>
+                        <a href="index2.php"><button id="ret_btn">Retour</button>
                         <form enctype="multipart/form-data" method="post" action="delbooks.php"> 
                             <input id ="hidden_input" type="text" name="isbn" value ="<?php echo $isbn;?>" />   
                             <input type="submit" value="Supprimer" id="del_btn" /> 
